@@ -705,6 +705,104 @@ model-viewer {
     box-shadow: 0 0 6px #dc2626;
 }
 
+/* Tech Stack Scrolling Animation */
+.tech-stack-scroll {
+    width: 100%;
+    overflow: hidden;
+    padding: 60px 0;
+    background: rgba(0, 0, 0, 0.5);
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.tech-stack-scroll::before,
+.tech-stack-scroll::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    z-index: 2;
+}
+
+.tech-stack-scroll::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.tech-stack-scroll::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.tech-track {
+    display: flex;
+    gap: 40px;
+    animation: scroll-left 40s linear infinite;
+    width: fit-content;
+}
+
+.tech-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.tech-item:hover {
+    background: rgba(220, 38, 38, 0.1);
+    transform: translateY(-5px);
+    border-color: rgba(220, 38, 38, 0.5);
+    box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+}
+
+.tech-item i {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.tech-item span {
+    color: #e5e5e5;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tech-item {
+        min-width: 100px;
+        padding: 15px;
+    }
+    
+    .tech-item i {
+        font-size: 2.5rem;
+    }
+    
+    .tech-item span {
+        font-size: 0.8rem;
+    }
+}
+
 @keyframes particle-float {
     0% {
         transform: translateY(100vh) rotate(0deg);
