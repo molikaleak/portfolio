@@ -21,9 +21,6 @@ jobs:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
           RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
         run: |
-          # Install curl if not present
-          which curl || apt-get update && apt-get install -y curl
-          
           echo "Triggering Render deployment..."
           
           # Trigger Render deployment via API
